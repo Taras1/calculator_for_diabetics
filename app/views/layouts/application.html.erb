@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<section id="content">
+		<header>
+			<%= link_to "Калькулятор для диабетиков", {controller: "welcome", action: "index"}, {id: "site_name"} %><br />
+			<ul>
+				<li><%= link_to "Регистрация", 	controller: "user",		action: "new" %></li>
+				<li><%= link_to "Вход на сайт",	controller: "welcome", 	action: "index" %></li>
+				<li><%= link_to "Выход", 		controller: "welcome", 	action: "index" %></li>
+			</ul> 
+		</header>
+		
+		<%= yield %>
+		
+		<footer>&copy;2013</footer>
+	</section>
 </body>
 </html>
