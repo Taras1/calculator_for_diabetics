@@ -1,8 +1,9 @@
 CalculatorForDiabetics::Application.routes.draw do
-  get "user/new"
-  get "user/create"
-  get "user/show"
-  get "user/delete"
+  
+  resources :user,   :only => [:new, :create, :update,  :show, :destroy] do
+    get "/confirm_email/:id" => "user#confirm_email"
+  end
+  
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
