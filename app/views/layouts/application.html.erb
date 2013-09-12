@@ -11,9 +11,12 @@
 		<header>
 			<%= link_to "Калькулятор для диабетиков", {controller: "welcome", action: "index"}, {id: "site_name"} %><br />
 			<ul>
-				<li><%= link_to "Регистрация", 	controller: "user",		action: "new" %></li>
-				<li><%= link_to "Вход на сайт",	controller: "welcome", 	action: "index" %></li>
-				<li><%= link_to "Выход", 		controller: "welcome", 	action: "index" %></li>
+				<% unless session[:session_key] %>
+					<li><%= link_to "Регистрация", 	new_user_path 	%></li>
+					<li><%= link_to "Вход на сайт",	sign_in_path 	%></li>
+				<% else %>
+					<li><%= link_to "Выход", 		sign_out_path, :method => :delete	%></li>
+				<% end %>
 			</ul> 
 		</header>
 		

@@ -1,0 +1,17 @@
+<%if flash[:error] %>
+	<div><%= flash[:error] %></div>
+<% end %>
+
+<%= form_for :user, :url => {:action => :create, :method => :post} do |f| %>
+
+	E-mail<br />					<%= f.text_field 		:email %>			<% if @user.errors.any? %><%= @user.errors[:email][0] %> <% end %><br />
+	Пароль<br />					<%= f.password_field	:password %>		<% if @user.errors.any? %><%= @user.errors[:password][0] %> <% end %><br />
+	Фамилия Имя Отчество<br />		<%= f.text_field 		:full_name %>		<% if @user.errors.any? %><%= @user.errors[:full_name][0] %> <% end %><br /> 
+	Дата рождения<br />				<%= f.text_field 		:birthday %>		<% if @user.errors.any? %><%= @user.errors[:birthday][0] %> <% end %><br />
+	Контактный телефон<br />		<%= f.text_field 		:phone_number %>	<% if @user.errors.any? %><%= @user.errors[:phone_number][0] %> <% end %><br />
+	Город проживания<br />			<%= f.text_field 		:city %>			<% if @user.errors.any? %><%= @user.errors[:city][0] %> <% end %><br />
+	Улица и номер дома<br />		<%= f.text_field 		:address %>			<% if @user.errors.any? %><%= @user.errors[:address][0] %> <% end %><br />
+	<br />
+	<%= f.submit "Зарегистрироваться"  %>
+
+<% end %>
