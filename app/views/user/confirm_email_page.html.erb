@@ -1,0 +1,9 @@
+<% if flash[:error] %>
+	<%= flash[:error] %>
+<% end %>
+<%= form_for :confirm_email do |f| %>
+	Проверьте свою почту и скопируйте полученый код в поле: <%= f.text_field :code_confirm %><br />
+	<%= f.submit "Подтвердить" %>
+<% end %><br />
+<%= link_to "Изменить Email", edit_user_path(@user.id) %><br />
+<%= link_to "Получить письмо еще раз"%>

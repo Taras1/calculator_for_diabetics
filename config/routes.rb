@@ -1,14 +1,19 @@
 CalculatorForDiabetics::Application.routes.draw do
   
   
-  resources :user,   :only => [:new, :create, :edit, :update, :show, :destroy] do
+  resources :user,   :only => [:index, :new, :create, :edit, :update, :show, :destroy] do
     get   "confirm_email_page"  => "user#confirm_email_page"
     post  "confirm_email_page"  => "user#confirm_email"
+    
   end
   
+  resources :group_products, :only => [:index, :new, :create, :destroy]
+
+  
   get "session/new"       => "sessions#new",     :as =>"sign_in"
-  post "session/new"          => "sessions#create"
+  post "session/new"      => "sessions#create"
   delete "session/delete" => "sessions#destroy", :as => "sign_out"
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

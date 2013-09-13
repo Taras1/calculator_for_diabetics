@@ -1,8 +1,12 @@
 class UserController < ApplicationController
   
-  before_filter :sign_in, :only => [:show, :destroy]
+  before_filter :sign_in?, :only => [:show, :destroy]
   before_filter :confirm_email?, :only => [:show]
   before_filter :current_user
+  
+  def index
+    @user = User.where(:admin => false)
+  end
   
   def new
      @user = User.new

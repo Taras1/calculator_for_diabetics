@@ -1,1 +1,11 @@
-Здравствуйте, <%= @user.full_name %>
+Здравствуйте, <%= @user.full_name %><br />
+
+<ul>
+<% if @user.admin %>
+	<li><%= link_to "Список пользователей", user_index_path %></li>
+	<li><%= link_to "Справочник", group_products_path %></li>
+<% elsif !@user.admin %>
+	
+<% end %>
+	<li><%= link_to "Инсулиновый калькулятор" %></li>
+</ul>

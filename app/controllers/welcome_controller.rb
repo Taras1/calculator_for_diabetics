@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-      @user = current_user
+      if current_user
+        redirect_to @user
+      end
   end
 end

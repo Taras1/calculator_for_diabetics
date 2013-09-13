@@ -1,0 +1,10 @@
+<% if flash[:error] %>
+	<div><%= flash[:error] %></div>
+<% end %>
+
+<%= form_for :session do |f| %>
+	Введите ваш Email: 	<%= f.text_field :email %> <br />
+	Введите пароль:		<%= f.password_field :password %><br>
+	<br />
+	<%= f.submit "Войти" %>
+<% end %>

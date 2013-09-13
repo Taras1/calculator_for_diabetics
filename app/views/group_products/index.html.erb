@@ -1,0 +1,6 @@
+<div>Гуппы продуктов</div>
+<%= form_for :group, :url => {:action => :create} do |f| %>
+	Добавить группу продуктов: <%= f.text_field :group_name %><br />
+	<%= f.submit "Добавить" %>
+	
+<% end %>

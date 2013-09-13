@@ -9,10 +9,16 @@ class ApplicationController < ActionController::Base
     @user = User.find_by_session_key(session[:session_key])
   end
   
-  def sign_in
+  def sign_in?
     unless session[:session_key]
       flash[:error] = "Войдите на сайт или зарегестрируйтесь!"
-      redirect_to welcome_index_path
+      redirect_to root_path
+    end
+  end
+  
+  def admin?
+    unless @user.admin
+      redirect_to  root_path
     end
   end
   

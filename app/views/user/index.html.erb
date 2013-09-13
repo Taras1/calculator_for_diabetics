@@ -1,0 +1,24 @@
+<% if @user.empty? %>
+	Еще нет зарегистрированых пользователей
+<% else %>
+
+	<table>
+		<tr>
+			<th>Фамилия Имя Отчество</th>
+			<th>Дата рождения</th>
+			<th>Контактный телефон</th>
+			<th>Адрес проживания</th>
+			<th>Электронная почта</th>
+		</tr>
+		<% @user.each do |u| %>
+		<tr>
+			<td><%= u.full_name %></td>
+			<td><%= u.birthday %></td>
+			<td><%= u.phone_number %></td>
+			<td><%= "#{u.city}, #{u.address}" %></td>
+			<td><%= u.email %></td>
+		</tr>
+		<% end %>
+	</table>
+	
+<% end %>
